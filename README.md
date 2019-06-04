@@ -1,5 +1,5 @@
 # uFaculties
-Final-term project of Web App Development - Spring 2019
+## Final-term project of Web App Development - Spring 2019
 <br>
 After cloning project, install required packages:
 <br>
