@@ -1,0 +1,50 @@
+<nav class="navbar">
+    <div class="banner">
+        <h1><a href="#" class = "active"><img src="/src/logo/oie_transparent.png" alt="logo"></a></h1>
+    </div>
+    <ul class="nav-main" id="top-nav">
+        <li id="icon-extend">
+          <!--for moblie view-->
+          <a href="javascript:void(0);" class="icon" onclick="renderMobileView()">
+            <i class="fa fa-bars"></i>
+          </a>
+        </li>
+        <li><a href="#">Trang chủ</a></li>
+        <li class="dropdown">
+            <% if(userMessage.length != 0) { %>
+            <a class="dropdown-btn">Tùy chọn <i class="fa fa-angle-down" aria-hidden="true"></i> </a>
+            <% } %>
+            <div class="dropdown-content">
+               <ul>
+                   <% if(userMessage == 'staff') { %>
+                   <li><a href="/profile">Thông tin cá nhân</a></li>
+                   <% } else if(userMessage == 'admin') { %>
+                   <li><a href="/division_admin">Đơn vị</a></li>
+                   <li><a href="/staff_admin">Cán bộ</a></li>
+                   <li><a href="/research_field_admin">Nghiên cứu</a></li>
+                   <% } else {%>
+                    <% } %>
+               </ul>
+            </div>
+         </li>
+        <% if(userMessage.length > 0) { %>
+        <li><a href="/logout" style="width:auto;">Đăng xuất</a></li>
+        <% } else{ %>
+        <li><a href="/login" style="width:auto;">Đăng nhập</a></li>
+        <% } %>
+    </ul>
+
+</nav>
+<div id ="div-ntf">
+  <strong id="#notification" style="visibility: hidden; display: block;">Message</strong style>
+</div>
+<script>
+  function renderMobileView() {
+    var x = document.getElementById("top-nav");
+    if (x.className == "nav-main") {
+      x.className += " responsive";
+    } else {
+      x.className = "nav-main";
+    }
+  }
+</script>

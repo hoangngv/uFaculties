@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <% include ../partials/head %>
+    <link rel="stylesheet" href="bootstrap-4.3.1/dist/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main class="main-content">
+        <div class="container" id="leftHalf">
+            <h3>Tìm kiếm giảng viên</h3>
+            <br>
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#menu1">Đơn vị công tác</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#menu2">Lĩnh vực nghiên cứu</a>
+                </li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div id="menu1" class="container tab-pane active"><br>
+                    <div id="search_box_divison">
+                        <input type="text" class="form-control input-sm" placeholder="Tìm kiếm đơn vị" id="search_division" name="search_division"/>
+                    </div>
+                    <div id="division_tree"></div>
+                    <br/>
+                </div>
+                <div id="menu2" class="container tab-pane fade"><br>
+                    <div id="search_box_field">
+                        <input type="text" class="form-control input-sm" placeholder="Tìm kiếm lĩnh vực" id="search_field" name="search_field"/>
+                    </div>
+                    <div id="research_tree"></div>
+                    <br/>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" id="rightHalf">
+            <h2>Kết quả tìm kiếm</h2>
+            <p>Danh sách giảng viên:</p>
+            <table class="table table-bordered" id="lecturerInfo">
+                <thead>
+                    <tr>
+                        <th>HHHV</th>
+                        <th>Tên giảng viên</th>
+                        <th>Đơn vị</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   <!--  data returned will fill this area -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+
+</body>
+</html>
+
+<!--CSS-->
+<link rel="stylesheet" href="/dist/themes/default/style.css" />
+
+<!--JS-->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+
+<script src="js/index.js"></script>

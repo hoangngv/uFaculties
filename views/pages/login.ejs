@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <% include ../partials/head %>
+</head>
+<body>
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+    <main class="main-content">
+        <section id="login-section">
+            <div class = "login-div">
+                <form class="login" action="/login" method="post">
+                    <label for="user">Tên đăng nhập</label>
+                    <input type="text" name="username" placeholder="Enter Username" id="user" autofocus>
+                    <label for="passwrd">Mật khẩu</label>
+                    <input type="password" name="password" placeholder="Enter Password" id="password">
+                    <% if(loginMessage.length > 0) { %>
+                    <div id="errorLogin" ><%- loginMessage %></div>
+                    <% } else { %>
+                    <div></div>
+                    <br>
+                    <% } %>
+                    <input type="submit" value="Đăng nhập">
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+
+</body>
+</html>
+<script>
+    $("#errorLogin").fadeOut(3000, function() {
+            $(this).css({
+                "visibility": "hidden",
+                "display": "block"
+            });
+    });
+</script>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <% include ../partials/head %>
+    <!--CSS-->
+    <link rel="stylesheet" href="/dist/themes/default/style.min.css" />
+
+    <!--JS-->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+    <script src="/js/other_user/lecturer.js"></script>
+
+</head>
+<body>
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+    <main class="main-content">
+        <section class = "list-container">
+            <div class="basic-info">
+                <ul class="first-ul">
+                    <h1 id="full_name"></h1>
+                    <ul>
+
+                        <span>
+                            <i class="fa fa-address-card" aria-hidden="true" style="color:cornflowerblue" >&nbsp</i>
+                            Mã cán bộ:&nbsp
+                            <!--&nbsp make a space-->
+                            <li id = "staff_id">
+                            </li>
+                            &nbsp
+                        </span>
+                        <span>
+                            <i class="fa fa-briefcase" aria-hidden="true" style="color:cornflowerblue" >&nbsp</i>
+                            Chức vụ:&nbsp
+                            <!--&nbsp make a space-->
+                            <li id="staff_type">
+                            </li>
+                            &nbsp
+                        </span>
+                        <span>
+                            <i class="fa fa-book" aria-hidden="true" style="color:cornflowerblue" >&nbsp</i>
+                            Bộ môn:&nbsp
+                            <!--&nbsp make a space-->
+                            <li id="address">
+                            </li>
+                            &nbsp
+                        </span>
+
+                        <span>
+                            <i class="fa fa-id-card-o" aria-hidden="true" style="color:cornflowerblue" >&nbsp</i>
+                            Học hàm, học vị:&nbsp
+                            <!--&nbsp make a space-->
+                            <li id="degree_level">
+                            </li>
+                            &nbsp
+                        </span>
+                        <span>
+                            <i class="fa fa-phone-square" aria-hidden="true" style="color:cornflowerblue" >&nbsp</i>
+                            Số điện thoại:&nbsp
+                            <!--&nbsp make a space-->
+                            <li id="phone_number">
+                            </li>
+                            &nbsp
+                            <i class="fa fa-pencil-square-o" aria-hidden="true" onclick='editBasicInfo("phone_number")'></i>
+                        </span>
+                        <span>
+                            <i class="fa fa-envelope" aria-hidden="true" style="color:cornflowerblue" >&nbsp</i>
+                            VNU email:&nbsp
+                            <!--&nbsp make a space-->
+                            <li id="vnu_email">
+                            </li>
+                            &nbsp
+                            <i class="fa fa-pencil-square-o" aria-hidden="true" onclick='editBasicInfo("vnu_email")'></i>
+                        </span>
+                        <span>
+                            <i class="fa fa-envelope-o" aria-hidden="true" style="color:cornflowerblue" >&nbsp</i>
+                            Email khác:&nbsp
+                            <!--&nbsp make a space-->
+                            <li id="other_email">
+                            </li>
+                            &nbsp
+                            <i class="fa fa-pencil-square-o" aria-hidden="true" onclick='editBasicInfo("other_email")'></i>
+                        </span>
+                        <span>
+                            <i class="fa fa-globe" aria-hidden="true" style="color:cornflowerblue" >&nbsp</i>
+                            Website:&nbsp
+                            <!--&nbsp make a space-->
+                            <li id="website">
+                                <!-- <a href="http://uet.vnu.edu.vn/~thanhld/" id="website">
+                                    http://uet.vnu.edu.vn/~thanhld/
+                                </a> -->
+                            </li>
+                            &nbsp
+                            <i class="fa fa-pencil-square-o" aria-hidden="true" onclick='editBasicInfo("website")'></i>
+                        </span>
+                        <span>
+                            <i class="fa fa-university" aria-hidden="true" style="color:cornflowerblue" >&nbsp</i>
+                            Địa chỉ:&nbsp
+                            <!--&nbsp make a space-->
+                            <li id="staff_address">
+                            </li>
+                            &nbsp
+                            <i class="fa fa-pencil-square-o" aria-hidden="true" onclick='editBasicInfo("staff_address")'></i>
+                        </span>
+                    </ul>
+                </ul>
+                <ul class="last-ul">
+                    <img src="/src/defaultAvatar.png" alt="Avatar">
+                    <ul>
+                        <button><i class="fa fa-camera-retro fa-lg"></i> Cập nhật ảnh</button>
+                        <button>Xóa ảnh</button>
+                    </ul>
+                </ul>
+            </div>
+
+            <div class=interested-field>
+                <ul>
+                    <h1>Chủ đề nghiên cứu</h1>
+                    <ul class = "main-ul-content">
+                        <span>
+                            <textarea id = "interested-field-editor" style="min-height: 100px; min-width: 200px" disabled>
+                            </textarea>
+                        </span>
+                    </ul>
+                </ul>
+                <ul>
+                    <button onclick='editInterestedField("interested-field-editor");'>Chỉnh sửa</button>
+                </ul>
+            </div>
+
+            <div class="research-field">
+                <ul>
+                    <h1>Lĩnh vực quan tâm</h1>
+                    <ul id="researchList">
+                        <!-- output -->
+                    </ul>
+                </ul>
+                <ul>
+                    <button id="btn_edit">Chỉnh sửa</button>
+                </ul>
+            </div>
+            <br />
+            <br />
+            <div>
+                <ul>
+                    <h1 id="heading">Cập nhật lĩnh vực quan tâm</h1>
+                </ul>
+            </div>
+            <!-- <h2 id="heading2">Cập nhật lĩnh vực quan tâm</h2> -->
+            <div id="research_tree"></div>
+            <br/>
+            <div>
+                <ul>
+                    <button class="buttonUpdate" id="btn_updateDB">Cập nhật</button>
+                    <!--onClick="window.location.reload();"-->
+                </ul>
+            </div>
+            <br/>
+            <br/>
+
+        </section>
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+
+</body>
+</html>

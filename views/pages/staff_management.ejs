@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <% include ../partials/head %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.js"></script>
+    <script src="/js/admin/staff.js"></script>
+</head>
+<body>
+    <header>
+        <% include ../partials/header %>
+    </header>
+    <main class="main-content">
+        <section>
+          <div>
+              <h1>Cán bộ</h1>
+              <h1>
+                <!-- <button onclick="loadTable();">Reload Table</button> -->
+                <button id = "add-from-excel">Thêm từ excel</button>
+                <div>
+                  <form enctype="multipart/form-data" style="display:none">
+                      <input id="excelFileUpload" type=file  name="files[]">
+                  </form>
+                </div>
+              </h1>
+          </div>
+          <div style="overflow-x:auto;" class="unit-table-content">
+            <table id="table-u">
+              <thead>
+                  <tr class="title">
+                    <th>Thứ tự</th>
+                    <th>Mã cán bộ</th>
+                    <th>Họ và tên</th>
+                    <th>Tài khoản</th>
+                    <th>VNU email</th>
+                    <th>Loại cán bộ</th>
+                    <th>Học vị</th>
+                    <th>Đơn vị công tác</th>
+                    <th>Thao tác</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr id="new_row"><td id = "insert_row_o">0</td>
+                    <td id = "insert_row"><input type="text" id="new_offCode" required=""></td>
+                    <td><input type="text" id="new_fullName" required=""></td>
+                    <td><input type="text" id="new_account" required=""></td>
+                    <td><input type="text" id="new_vnuMail" required=""></td>
+                    <td><input type="text" id="new_offType" required=""></td>
+                    <td><input type="text" id="new_degree" required=""></td>
+                    <td><input type="text" id="new_workingUnit" required=""></td>
+                    <td><input type="button" value="Thêm mới" onclick="insert_row();"></td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+
+</body>
+</html>
+<script>
+  //button : trigger input file
+  $("#add-from-excel").unbind("click").bind("click", function () {
+      $("#excelFileUpload").click();
+  });
+  
+  document.getElementById('excelFileUpload').addEventListener('change', handleFileSelect, false);
+</script>

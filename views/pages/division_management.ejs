@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <% include ../partials/head %>
+    <script src="/js/admin/division.js"></script>
+</head>
+<!-- <script type="text/javascript">
+  
+</script> -->
+<body>
+    <header>
+        <% include ../partials/header %>
+    </header>
+    <main class="main-content">
+        <section>
+          <div>
+              <h1 id="top-page">Đơn vị</h1>
+          </div>
+          <div style="overflow-x:auto;" class="unit-table-content">
+            <table id="table-u">
+              <thead>
+                  <tr class="title">
+                      <th>Thứ tự</th>
+                      <th>Tên đơn vị</th>
+                      <th>Loại đơn vị</th>
+                      <th>Địa chỉ</th>
+                      <th>Điện thoại</th>
+                      <th>Website </th>
+                      <th>Thao tác</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr id="new_row"><td id = "insert_row_o">0</td>
+                    <td id = "insert_row"><input type="text" id="new_unit" required=""></td>
+                    <td><input type="text" id="new_unitType" required=""></td>
+                    <td><input type="text" id="new_add" required=""></td>
+                    <td><input type="text" id="new_phone" required=""></td>
+                    <td><input type="text" id="new_webAdd" required=""></td>
+                    <td><input type="button" value="Thêm mới" onclick="insert_row();"></td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+
+</body>
+</html>
